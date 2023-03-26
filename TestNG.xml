@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite">
+
+<listeners>
+		 <!--<listener class-name="com.utilities.ExtentReportUtility" />-->
+	</listeners>
+
+
+	<test name="E2E Test">
+		<parameter name="browser" value="chrome" />
+		<classes>
+	
+			
+			 <class name="com.Testcases.TC_001_E2EInteractive" />
+			
+		</classes>
+
+	</test>
+
+</suite>

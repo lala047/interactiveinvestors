@@ -4,7 +4,7 @@
 <suite name="Suite">
 
 <listeners>
-		 <!--<listener class-name="com.utilities.ExtentReportUtility" />-->
+		<listener class-name="com.utilities.ExtentReportUtility" />
 	</listeners>
 
 

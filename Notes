@@ -1,0 +1,35 @@
+5.	As your test goes through the user journey, assert various parts on the page and verify they are displaying correctly, e.g. a button or some text etc.
+6.	Iterate through all header items in the top nav bar and repeat the same test as above. 
+
+
+
+
+-Please feel free to elaborate on the simple test case steps above if you wish, to make the test more robust/comprehensive, and display your skills. 
+
+-Please add comments to the code or submit with notes to explain your thought of process on
+(i) page interactions/
+(ii)locators choices,   -  In the absence of the element locator id, I have used xpath.
+(iii)object structure, 
+(iv)difficulties encountered, etc.
+
+
+
+
+
+
+
+
+
+
+
+I have used Java as my language and Selenium WebDriver to run my test. 
+I have used the Page Factory where I created a page class for each page.
+
+I have maintained my url in Config. Properties File
+
+Using Page Factory I have created a page class for each page and maintained my locators in each of the page class and also created action methods/functions.
+
+I have called these functions from these page classes using the test class to run my test. From the Test Class, I have extended the Base Class to acquire common functions like Webdriver Inititaion, Implicit wait, loading the config file etc.
+
+Using the xml file, I have parameterised my test and executed my test case
+

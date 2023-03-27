@@ -4,54 +4,114 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
-public class HomePage extends BasePage{
-	
+public class HomePage extends BasePage {
+
 	public HomePage(WebDriver driver) {
-		
-			
-			super(driver);
-			}
-				
-		@FindBy(xpath="//button[text()= 'Accept']") public WebElement btnAccpt;
-		@FindBy(xpath = "//span[@title='Services']") public WebElement dpdwnServices;
-		@FindBy(xpath = "//a[text()= 'Trading Account']") public WebElement btntradnacct;  
-		@FindBy(xpath="//a[contains(normalize-space(),'Logout')]") public WebElement lnkLogout;
-		
-		
-		
 
-	public void AcceptCookies (){
+		super(driver);
+	}
+
+	/**
+	 * I have used Java as my language and Selenium WebDriver to run my test.
+	 * 
+	 * I have maintained my url in Config. Properties File
+	 * 
+	 * Using Page Factory (Page Object Model), I have created a page class for each
+	 * page and maintained my locators in each of the page class which makes it easy
+	 * for me to make changes without disrupting the test scripts. I have also
+	 * created action methods/functions.
+	 * 
+	 * I have called these functions from these page classes using the test class to
+	 * run my test.
+	 * 
+	 * 
+	 */
+
+	@FindBy(xpath = "//button[text()= 'Accept']")
+	public WebElement btnAccpt;
+	@FindBy(xpath = "//span[@title='Services']")
+	public WebElement dpdwnServices;
+	@FindBy(xpath = "//a[text()= 'Trading Account']")
+	public WebElement btntradnacct;
+	@FindBy(xpath = "//div[@id='navigationItemServices']//li")
+	public List<WebElement> Servicesitems;
+	@FindBy(xpath = "//span[@title='Pensions']")
+	public WebElement dpdwnPensions;
+	@FindBy(xpath = "//div[@id='navigationItemPensions']//li")
+	public List<WebElement> Penitems;
+	@FindBy(xpath = "//span[@title='Investments']")
+	public WebElement dpdInv;
+	@FindBy(xpath = "//div[@id='navigationItemInvestments']//li")
+	public List<WebElement> invitems;
+	@FindBy(xpath = "//span[@title='Help & learning']")
+	public WebElement dpdwnHelp;
+	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//li")
+	public List<WebElement> Helpitems;
+	@FindBy(xpath = "//span[@title='News']")
+	public WebElement dpdwnNews;
+	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//li")
+	public List<WebElement> Newsitems;
+
+	public void AcceptCookies() {
 		btnAccpt.click();
-		
-		}
-	public void ClickServices (){
+
+	}
+
+	public void ClickServices() {
 		dpdwnServices.click();
-			
+
 	}
-	public void ClickTradingAccount () throws InterruptedException{
-		Actions act= new Actions(driver);
-		act.moveToElement(dpdwnServices).perform();
+
+	public void ClickTradingAccount() throws InterruptedException {
 		btntradnacct.click();
-		
-		
+
 	}
+
 	public void ItirateServ() {
+		System.out.println(Servicesitems.size());
+		for (int i = 0; i < Servicesitems.size(); i++) {
+			System.out.println(Servicesitems.get(i).getText());
+		}
+	}
 
-	
-	Select sel = new Select(dpdwnServices);
-	List<WebElement> li = sel.getOptions();
+	public void ClickPensions() {
+		dpdwnPensions.click();
+	}
 
-	//System.out.println(li.size());
+	public void ItiratePens() {
+		System.out.println(Penitems.size());
+		for (int i = 0; i < Penitems.size(); i++) {
+			System.out.println(Penitems.get(i).getText());
+		}
+	}
 
-	for (int i = 0; i < li.size(); i++) {
+	public void ClickInvestment() {
+		dpdInv.click();
+	}
 
-		li.get(i).click(); 
-		System.out.println(li.get(i).getText());
-}
+	public void ItirateInv() {
+		System.out.println(invitems.size());
+		for (int i = 0; i < invitems.size(); i++) {
+			System.out.println(invitems.get(i).getText());
+		}
 
 	}
+
+	public void ClickHelp() {
+		dpdwnHelp.click();
+	}
+
+	public void ItirateHelp() {
+		System.out.println(Helpitems.size());
+		for (int i = 0; i < Helpitems.size(); i++) {
+			System.out.println(Helpitems.get(i).getText());
+		}
+	}
+
+	public void ClickNews() {
+		dpdwnHelp.click();
+	}
+
 }

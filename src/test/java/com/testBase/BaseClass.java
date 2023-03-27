@@ -1,6 +1,5 @@
 package com.testBase;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -24,66 +23,55 @@ import org.testng.annotations.Parameters;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	
-static public WebDriver driver;
 
-	public Logger logger;  // for logging
-	
-	public ResourceBundle rb;   // for reading properties file
-	
+	static public WebDriver driver;
+
+	public Logger logger; // for logging
+
+	public ResourceBundle rb; // for reading properties file
+
 	@BeforeClass
 	@Parameters("browser")
-	public void setup(String br)
-	{
-		//Loading config.properties file
-		rb=ResourceBundle.getBundle("config");
-		
-		
-		if(br.equals("chrome") || br.equals(""))
-		{
-		WebDriverManager.chromedriver().setup();
-		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		
-		driver=new ChromeDriver(options);
-		}
-		else if(br.equals("edge"))
-		{
+	public void setup(String br) {
+		// Loading config.properties file
+		rb = ResourceBundle.getBundle("config");
+
+		if (br.equals("chrome") || br.equals("")) {
+			WebDriverManager.chromedriver().setup();
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--remote-allow-origins=*");
+
+			driver = new ChromeDriver(options);
+		} else if (br.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
-			driver=new EdgeDriver();
-			
-		}
-		else
-		{
+			driver = new EdgeDriver();
+
+		} else {
 			WebDriverManager.firefoxdriver().setup();
-			driver=new FirefoxDriver();
+			driver = new FirefoxDriver();
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			
+
 		driver.get(rb.getString("appURL"));
 		driver.manage().window().maximize();
-		
+
 	}
-	
+
 	@AfterClass
-	public void tearDown()
-	{
+	public void tearDown() {
 		driver.quit();
 	}
-	
-	
-	
+
 	public String captureScreen(String tname) throws IOException {
 
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		
+
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String destination = System.getProperty("user.dir") + "\\screenshots\\" + tname + "_" + timeStamp + ".png";
 
-		
 		try {
 			FileUtils.copyFile(source, new File(destination));
 		} catch (Exception e) {
@@ -93,6 +81,5 @@ static public WebDriver driver;
 
 	}
 	
-	
-	
+
 }

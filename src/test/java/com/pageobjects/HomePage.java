@@ -35,24 +35,31 @@ public class HomePage extends BasePage {
 	public WebElement dpdwnServices;
 	@FindBy(xpath = "//a[text()= 'Trading Account']")
 	public WebElement btntradnacct;
-	@FindBy(xpath = "//div[@id='navigationItemServices']//li")
+	@FindBy(xpath = "//div[@id='navigationItemServices']//a")
 	public List<WebElement> Servicesitems;
 	@FindBy(xpath = "//span[@title='Pensions']")
 	public WebElement dpdwnPensions;
-	@FindBy(xpath = "//div[@id='navigationItemPensions']//li")
+	@FindBy(xpath = "//div[@id='navigationItemPensions']//a")
 	public List<WebElement> Penitems;
 	@FindBy(xpath = "//span[@title='Investments']")
 	public WebElement dpdInv;
-	@FindBy(xpath = "//div[@id='navigationItemInvestments']//li")
+	@FindBy(xpath = "//div[@id='navigationItemInvestments']//a")
 	public List<WebElement> invitems;
 	@FindBy(xpath = "//span[@title='Help & learning']")
 	public WebElement dpdwnHelp;
-	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//li")
+	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//a")
 	public List<WebElement> Helpitems;
 	@FindBy(xpath = "//span[@title='News']")
 	public WebElement dpdwnNews;
-	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//li")
+	@FindBy(xpath = "//div[@id='navigationItemHelpLearning']//a")
 	public List<WebElement> Newsitems;
+	@FindBy(xpath = "(//span[text()='Sign up'])[1]")
+	public WebElement btnSignUp;
+	
+	
+	
+	
+	
 
 	public void AcceptCookies() {
 		btnAccpt.click();
@@ -112,6 +119,10 @@ public class HomePage extends BasePage {
 
 	public void ClickNews() {
 		dpdwnHelp.click();
+	}
+
+	public void ClickSignUp(){
+		btnSignUp.click();
 	}
 
 }

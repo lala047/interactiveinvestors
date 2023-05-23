@@ -24,6 +24,7 @@ public class TC_001_E2EInteractive extends BaseClass {
 	 * 
 	 */
 
+	//@Test(invocationCount = 5)
 	@Test
 	public void Test1() throws InterruptedException {
 		HomePage hp = new HomePage(driver);

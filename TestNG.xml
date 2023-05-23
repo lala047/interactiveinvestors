@@ -7,13 +7,15 @@
 		<listener class-name="com.utilities.ExtentReportUtility" />
 	</listeners>
 
-
+	
 	<test name="E2E Test">
 		<parameter name="browser" value="chrome" />
 		<classes>
 	
 			
-			 <class name="com.Testcases.TC_001_E2EInteractive" />
+			<class name="com.Testcases.TC_001_E2EInteractive" />
+			 <!--  <class name="com.Testcases.TC_002_SignUP" />-->
+			                            
 			
 		</classes>
 
